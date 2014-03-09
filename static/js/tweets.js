@@ -28,6 +28,8 @@ function tweet_proc(result) {
 }
 
 ///////////////////////////////////////////////////////////////
+var th = dh - $("#tweets").position().top;
+$("#tweets").css({'height':th+'px'});
 
 function display_tweets() {
     for(var i=tweets.length-1;i>=0;i--) {
