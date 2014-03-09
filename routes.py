@@ -2,13 +2,14 @@ from flask import Flask, render_template
 import urllib2
 from threading import Timer
 import os
+import time
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', update=time.ctime(os.path.getmtime(os.getcwd()+"/static/json/tweets.json")))
 
 
 def route_sheet():
