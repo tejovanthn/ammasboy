@@ -30,7 +30,7 @@ function tweet_proc(result) {
 ///////////////////////////////////////////////////////////////
 
 function display_tweets() {
-    for(var i=0;i<tweets.length;i++) {
+    for(var i=tweets.length-1;i>=0;i--) {
         var date = new Date(Date.parse(tweets[i][2]));
         var $tweet = $('<div id="'+i+'"> <div> <a href="https://www.twitter.com/iBakasura/status/'+tweets[i][1]+'" target="_blank">'+date.toLocaleString() +'</a></div>'+tweets[i][0].replace("#AmmasBoy","")+'</div><hr>');
 
