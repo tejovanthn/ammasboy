@@ -26,7 +26,7 @@ def tweet_sheet():
     url = "https://spreadsheets.google.com/feeds/list/0Aj5Gl_JbMYf5dEZXQ0k2eVhMUG4teWgxbFlRQUM4a3c/oaw/public/values?alt=json-in-script"
     result = urllib2.urlopen(url).read()
     apijson = result[result.index("(") + 1: result.rindex(")")]
-    f = open(os.getcwd+"/static/json/tweets.json", "w+")
+    f = open(os.getcwd()+"/static/json/tweets.json", "w+")
     f.write(apijson)
     f.close()
     t = Timer(60*60*1, tweet_sheet)
