@@ -21,3 +21,6 @@ def tweet_sheet():
     f.write(apijson)
     f.close()
 
+if __name__ == '__main__':
+    route_sheet()
+    tweet_sheet()
