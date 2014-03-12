@@ -1,1 +1,1 @@
-web: gunicorn routes:app
+web: foreman start -f ProcfileFree
