@@ -17,7 +17,7 @@ function route_proc(result) {
  
     var places = Array();
     for(i=0; i<data.entry.length; i++){
-        route_rows.push([data.entry[i].gsx$lat.$t, data.entry[i].gsx$lng.$t]);
+        route_rows.push([data.entry[i].gsx$lat.$t, data.entry[i].gsx$lng.$t,data.entry[i].gsx$cumulative.$t,data.entry[i].gsx$dist.$t,data.entry[i].gsx$departure.$t]);
         places.push(data.entry[i].gsx$place.$t);
     }
     var point = "12.9607951,77.6406321".split(",");

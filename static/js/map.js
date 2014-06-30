@@ -1,8 +1,4 @@
 ///////////////////////////////////////////////////////////////
-var dh = $(document).height()-80;
-$('#map-canvas').css({'height':dh+'px'});
-
-///////////////////////////////////////////////////////////////
 var map;
 function initialize() {
     var mapOptions = {
@@ -17,7 +13,6 @@ function initialize() {
 
     $(document).on("tweet_done",function (){
         plot_tweets();
-        display_tweets();
         $("#reload").remove();
     });
     $(document).on("route_done", function(){

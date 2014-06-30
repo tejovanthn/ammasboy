@@ -24,6 +24,7 @@ function tweet_proc(result) {
     console.log(tweets);
     console.log(tweet_rows);
 
+    display_tweets();
     $(document).trigger("tweet_done");
 }
 

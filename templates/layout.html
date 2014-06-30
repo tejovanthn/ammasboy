@@ -9,8 +9,9 @@
         <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
 
         <title>Amma's Boy</title>
-        
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+        {% block header %}
+        {% endblock %}
 
         <!-- Bootstrap core CSS -->
         <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
@@ -27,31 +28,63 @@
     </head>
 
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h1> Amma's Boy </h1>
-                    <h2> My route around India. </h2>
-                    <br>
-                    <div id="reload">Please refresh the page if it does not load</div>
-                    <hr>
-                    <div id="tweets" style="overflow:auto"></div>
-                    <p> Last updated on: {{ update }}
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="../map">Amma's Boy</a>
                 </div>
-                <div class="col-md-8" id="map-canvas">
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="map"><a href="../map">Map</a></li>
+                        <li id="cal"><a href="../cal">Calendar</a></li>
+                        <li><a href="http://www.tejovanthn.com">Blog</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="starter-template">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2> My route around India. </h2>
+                        <br>
+                        <div id="reload">Please refresh the page if it does not load</div>
+                        <hr>
+                        <div id="tweets" style="overflow:auto"></div>
+                        <p> Last updated on: {{ update }}
+                    </div>
+                    <div class="col-md-8" id="content">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
             </div>
         </div> <!-- /container -->
+
+        <div class="footer">
+            <div class="container">
+                <p class="text-muted"> iNeedBlood - v{{g.version}} | Rendered in {{g.request_time()}} | {{g.city}}</p>
+            </div>
+        </div>
 
 
         <!-- Bootstrap core JavaScript
         ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}">
+        <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+
+        {% block scripts %}
+        {% endblock %}
 
         <script src="{{ url_for('static', filename='js/ammasboy.js')}}"> </script>
-        <script src="{{ url_for('static', filename='js/map.js')}}"> </script>
         <script src="{{ url_for('static', filename='js/tweets.js')}}"> </script>
         <script src="{{ url_for('static', filename='js/route.js')}}"> </script>
         <script src="{{ url_for('static', filename='js/distance.js')}}"> </script>

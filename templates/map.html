@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+
+{% block header %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+{% endblock %}
+
+{% block content %}
+<div id="map-canvas"></div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/map.js')}}"> </script>
+<script>
+    $("#map").addClass("active");
+</script>
+{% endblock %}
